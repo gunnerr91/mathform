@@ -1,11 +1,15 @@
 import { AbstractControl } from '@angular/forms';
 
 export class MathValidators {
-  static addition(form: AbstractControl) {
-    const { firstNumber, secondNumber, answer } = form.value;
-    if (firstNumber + secondNumber === parseInt(answer)) {
-      return null;
-    }
-    return { addition: true };
+  static addition(target: string, sourceOne: string, sourceTwo: string) {
+    return (form: AbstractControl) => {
+      const answer = form.value[target];
+      const firstNumber = form.value[sourceOne];
+      const secondNumber = form.value[sourceTwo];
+      if (firstNumber + secondNumber === parseInt(answer)) {
+        return null;
+      }
+      return { addition: true };
+    };
   }
 }

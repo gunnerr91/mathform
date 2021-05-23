@@ -1,4 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  ComponentFixtureAutoDetect,
+  TestBed,
+} from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EquationComponent } from './equation.component';
 
@@ -10,13 +14,14 @@ describe('EquationComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [EquationComponent],
       imports: [ReactiveFormsModule],
+      providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(EquationComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('random number returns a number', () => {

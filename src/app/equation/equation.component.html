@@ -1,3 +1,5 @@
 <form [formGroup]="mathForm">
-  {{ firstNumber }} + {{ secondNumber }} = <input formControlName="answer" />
+  <div class="equation">{{ firstNumber }} + {{ secondNumber }} =</div>
+  <input appAnswerHighlight formControlName="answer" />
 </form>
+<div class="stats">Score: {{ secondsPerSolution }}</div>
